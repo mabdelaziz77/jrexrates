@@ -1,0 +1,20 @@
+/**
+ * @version		1.0.0
+ * @package		JoomReem.ExchangeRates
+ * @author              Mohamed Abdelaziz - http://www.joomreem.com
+ * @copyright           Copyright (c)  2015 JoomReem. All rights reserved.
+ * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ */
+
+.jrer-curr-entry {
+    display: table-row;
+}
+.jrer-curr-name, .jrer-curr-value {
+    display: table-cell;
+    text-align: right;
+    padding:0 25px;
+}
+.jrer-curr-entry.even {
+    background-color: #F9F9F9;
+}
+

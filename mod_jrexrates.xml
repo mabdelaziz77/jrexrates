@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @version		1.0.0
+ * @package		JoomReem.ExRates
+ * @author              Mohamed Abdelaziz - http://www.joomreem.com
+ * @copyright           Copyright (c)  2015 JoomReem. All rights reserved.
+ * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ */
+-->
+<extension type="module" version="3.0" client="site" method="upgrade">
+    <name>JRExRates</name>
+    <author>Mohamed Abdelaziz</author>
+    <creationDate>May 2015</creationDate>
+    <copyright>Copyright (c) 2015 JoomReem.com, All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; http://www.gnu.org/copyleft/gpl.html</license>
+    <authorEmail>zizo@joomreem.com</authorEmail>
+    <authorUrl>www.joomreem.com</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_JRER_DESC</description>
+
+    <files>
+        <filename module="mod_jrexrates">mod_jrexrates.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+        <folder>assets</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_jrexrates.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_jrexrates.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="jsonrates_apikey"
+                    type="text"
+                    label="MOD_JRER_JSONRATES_APIKEY_FIELD_LBL"
+                    description="MOD_JRER_JSONRATES_APIKEY_FIELD_DESC"
+                />
+                <field name="currency_base" type="list" default="USD" label="MOD_JRER_JSONRATES_BASE_FIELD_LBL" 
+                       description="MOD_JRER_JSONRATES_BASE_FIELD_DESC">
+                    <option value="AED">MOD_JRER_AED</option>
+                    <option value="AFN">MOD_JRER_AFN</option>
+                    <option value="ALL">MOD_JRER_ALL</option>
+                    <option value="AMD">MOD_JRER_AMD</option>
+                    <option value="ANG">MOD_JRER_ANG</option>
+                    <option value="AOA">MOD_JRER_AOA</option>
+                    <option value="ARS">MOD_JRER_ARS</option>
+                    <option value="AUD">MOD_JRER_AUD</option>
+                    <option value="AWG">MOD_JRER_AWG</option>
+                    <option value="AZN">MOD_JRER_AZN</option>
+                    <option value="BAM">MOD_JRER_BAM</option>
+                    <option value="BBD">MOD_JRER_BBD</option>
+                    <option value="BDT">MOD_JRER_BDT</option>
+                    <option value="BGN">MOD_JRER_BGN</option>
+                    <option value="BHD">MOD_JRER_BHD</option>
+                    <option value="BIF">MOD_JRER_BIF</option>
+                    <option value="BMD">MOD_JRER_BMD</option>
+                    <option value="BND">MOD_JRER_BND</option>
+                    <option value="BOB">MOD_JRER_BOB</option>
+                    <option value="BRL">MOD_JRER_BRL</option>
+                    <option value="BSD">MOD_JRER_BSD</option>
+                    <option value="BTN">MOD_JRER_BTN</option>
+                    <option value="BWP">MOD_JRER_BWP</option>
+                    <option value="BYR">MOD_JRER_BYR</option>
+                    <option value="BZD">MOD_JRER_BZD</option>
+                    <option value="CAD">MOD_JRER_CAD</option>
+                    <option value="CDF">MOD_JRER_CDF</option>
+                    <option value="CHF">MOD_JRER_CHF</option>
+                    <option value="CLF">MOD_JRER_CLF</option>
+                    <option value="CLP">MOD_JRER_CLP</option>
+                    <option value="CNH">MOD_JRER_CNH</option>
+                    <option value="CNY">MOD_JRER_CNY</option>
+                    <option value="COP">MOD_JRER_COP</option>
+                    <option value="CRC">MOD_JRER_CRC</option>
+                    <option value="CUP">MOD_JRER_CUP</option>
+                    <option value="CVE">MOD_JRER_CVE</option>
+                    <option value="CZK">MOD_JRER_CZK</option>
+                    <option value="DJF">MOD_JRER_DJF</option>
+                    <option value="DKK">MOD_JRER_DKK</option>
+                    <option value="DOP">MOD_JRER_DOP</option>
+                    <option value="DZD">MOD_JRER_DZD</option>
+                    <option value="EGP">MOD_JRER_EGP</option>
+                    <option value="ERN">MOD_JRER_ERN</option>
+                    <option value="ETB">MOD_JRER_ETB</option>
+                    <option value="EUR">MOD_JRER_EUR</option>
+                    <option value="FJD">MOD_JRER_FJD</option>
+                    <option value="FKP">MOD_JRER_FKP</option>
+                    <option value="GBP">MOD_JRER_GBP</option>
+                    <option value="GEL">MOD_JRER_GEL</option>
+                    <option value="GHS">MOD_JRER_GHS</option>
+                    <option value="GIP">MOD_JRER_GIP</option>
+                    <option value="GMD">MOD_JRER_GMD</option>
+                    <option value="GNF">MOD_JRER_GNF</option>
+                    <option value="GTQ">MOD_JRER_GTQ</option>
+                    <option value="GYD">MOD_JRER_GYD</option>
+                    <option value="HKD">MOD_JRER_HKD</option>
+                    <option value="HNL">MOD_JRER_HNL</option>
+                    <option value="HRK">MOD_JRER_HRK</option>
+                    <option value="HTG">MOD_JRER_HTG</option>
+                    <option value="HUF">MOD_JRER_HUF</option>
+                    <option value="IDR">MOD_JRER_IDR</option>
+                    <option value="IEP">MOD_JRER_IEP</option>
+                    <option value="ILS">MOD_JRER_ILS</option>
+                    <option value="INR">MOD_JRER_INR</option>
+                    <option value="IQD">MOD_JRER_IQD</option>
+                    <option value="IRR">MOD_JRER_IRR</option>
+                    <option value="ISK">MOD_JRER_ISK</option>
+                    <option value="JMD">MOD_JRER_JMD</option>
+                    <option value="JOD">MOD_JRER_JOD</option>
+                    <option value="JPY">MOD_JRER_JPY</option>
+                    <option value="KES">MOD_JRER_KES</option>
+                    <option value="KGS">MOD_JRER_KGS</option>
+                    <option value="KHR">MOD_JRER_KHR</option>
+                    <option value="KMF">MOD_JRER_KMF</option>
+                    <option value="KPW">MOD_JRER_KPW</option>
+                    <option value="KRW">MOD_JRER_KRW</option>
+                    <option value="KWD">MOD_JRER_KWD</option>
+                    <option value="KYD">MOD_JRER_KYD</option>
+                    <option value="KZT">MOD_JRER_KZT</option>
+                    <option value="LAK">MOD_JRER_LAK</option>
+                    <option value="LBP">MOD_JRER_LBP</option>
+                    <option value="LKR">MOD_JRER_LKR</option>
+                    <option value="LRD">MOD_JRER_LRD</option>
+                    <option value="LSL">MOD_JRER_LSL</option>
+                    <option value="LTL">MOD_JRER_LTL</option>
+                    <option value="LVL">MOD_JRER_LVL</option>
+                    <option value="LYD">MOD_JRER_LYD</option>
+                    <option value="MAD">MOD_JRER_MAD</option>
+                    <option value="MDL">MOD_JRER_MDL</option>
+                    <option value="MGA">MOD_JRER_MGA</option>
+                    <option value="MKD">MOD_JRER_MKD</option>
+                    <option value="MMK">MOD_JRER_MMK</option>
+                    <option value="MNT">MOD_JRER_MNT</option>
+                    <option value="MOP">MOD_JRER_MOP</option>
+                    <option value="MRO">MOD_JRER_MRO</option>
+                    <option value="MUR">MOD_JRER_MUR</option>
+                    <option value="MVR">MOD_JRER_MVR</option>
+                    <option value="MWK">MOD_JRER_MWK</option>
+                    <option value="MXN">MOD_JRER_MXN</option>
+                    <option value="MXV">MOD_JRER_MXV</option>
+                    <option value="MYR">MOD_JRER_MYR</option>
+                    <option value="MZN">MOD_JRER_MZN</option>
+                    <option value="NAD">MOD_JRER_NAD</option>
+                    <option value="NGN">MOD_JRER_NGN</option>
+                    <option value="NIO">MOD_JRER_NIO</option>
+                    <option value="NOK">MOD_JRER_NOK</option>
+                    <option value="NPR">MOD_JRER_NPR</option>
+                    <option value="NZD">MOD_JRER_NZD</option>
+                    <option value="OMR">MOD_JRER_OMR</option>
+                    <option value="PAB">MOD_JRER_PAB</option>
+                    <option value="PEN">MOD_JRER_PEN</option>
+                    <option value="PGK">MOD_JRER_PGK</option>
+                    <option value="PHP">MOD_JRER_PHP</option>
+                    <option value="PKR">MOD_JRER_PKR</option>
+                    <option value="PLN">MOD_JRER_PLN</option>
+                    <option value="PYG">MOD_JRER_PYG</option>
+                    <option value="QAR">MOD_JRER_QAR</option>
+                    <option value="RON">MOD_JRER_RON</option>
+                    <option value="RSD">MOD_JRER_RSD</option>
+                    <option value="RUB">MOD_JRER_RUB</option>
+                    <option value="RWF">MOD_JRER_RWF</option>
+                    <option value="SAR">MOD_JRER_SAR</option>
+                    <option value="SBD">MOD_JRER_SBD</option>
+                    <option value="SCR">MOD_JRER_SCR</option>
+                    <option value="SDG">MOD_JRER_SDG</option>
+                    <option value="SEK">MOD_JRER_SEK</option>
+                    <option value="SGD">MOD_JRER_SGD</option>
+                    <option value="SHP">MOD_JRER_SHP</option>
+                    <option value="SLL">MOD_JRER_SLL</option>
+                    <option value="SOS">MOD_JRER_SOS</option>
+                    <option value="SRD">MOD_JRER_SRD</option>
+                    <option value="STD">MOD_JRER_STD</option>
+                    <option value="SVC">MOD_JRER_SVC</option>
+                    <option value="SYP">MOD_JRER_SYP</option>
+                    <option value="SZL">MOD_JRER_SZL</option>
+                    <option value="THB">MOD_JRER_THB</option>
+                    <option value="TJS">MOD_JRER_TJS</option>
+                    <option value="TMT">MOD_JRER_TMT</option>
+                    <option value="TND">MOD_JRER_TND</option>
+                    <option value="TOP">MOD_JRER_TOP</option>
+                    <option value="TRY">MOD_JRER_TRY</option>
+                    <option value="TTD">MOD_JRER_TTD</option>
+                    <option value="TWD">MOD_JRER_TWD</option>
+                    <option value="TZS">MOD_JRER_TZS</option>
+                    <option value="UAH">MOD_JRER_UAH</option>
+                    <option value="UGX">MOD_JRER_UGX</option>
+                    <option value="USD">MOD_JRER_USD</option>
+                    <option value="UYU">MOD_JRER_UYU</option>
+                    <option value="UZS">MOD_JRER_UZS</option>
+                    <option value="VEF">MOD_JRER_VEF</option>
+                    <option value="VND">MOD_JRER_VND</option>
+                    <option value="VUV">MOD_JRER_VUV</option>
+                    <option value="WST">MOD_JRER_WST</option>
+                    <option value="XAF">MOD_JRER_XAF</option>
+                    <option value="XAG">MOD_JRER_XAG</option>
+                    <option value="XAU">MOD_JRER_XAU</option>
+                    <option value="XBT">MOD_JRER_XBT</option>
+                    <option value="XCD">MOD_JRER_XCD</option>
+                    <option value="XCP">MOD_JRER_XCP</option>
+                    <option value="XDR">MOD_JRER_XDR</option>
+                    <option value="XOF">MOD_JRER_XOF</option>
+                    <option value="XPD">MOD_JRER_XPD</option>
+                    <option value="XPF">MOD_JRER_XPF</option>
+                    <option value="XPT">MOD_JRER_XPT</option>
+                    <option value="YER">MOD_JRER_YER</option>
+                    <option value="ZAR">MOD_JRER_ZAR</option>
+                    <option value="ZMW">MOD_JRER_ZMW</option>
+                    <option value="ZWL">MOD_JRER_ZWL</option>
+                </field>
+                
+                <field
+                    name="inverse_rates"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+                    label="MOD_JRER_JSONRATES_INVERSE_RATES_FIELD_LBL"
+                    description="MOD_JRER_JSONRATES_INVERSE_RATES_FIELD_DESC"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                
+                <field
+                    name="currency_label"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="S"
+                    label="MOD_JRER_JSONRATES_CURRENCY_LABEL_FIELD_LBL"
+                    description="MOD_JRER_JSONRATES_CURRENCY_LABEL_FIELD_DESC"
+                >
+                    <option value="F">MOD_JRER_CL_FULLNAME</option>
+                    <option value="S">MOD_JRER_CL_SYMBOLE</option>
+                </field>
+                
+                <field name="currency_list" type="list" default="" multiple="true"
+                       label="MOD_JRER_JSONRATES_CURRENCY_LIST_FIELD_LBL" 
+                       description="MOD_JRER_JSONRATES_CURRENCY_LIST_FIELD_DESC">
+                    <option value="AED">MOD_JRER_AED</option>
+                    <option value="AFN">MOD_JRER_AFN</option>
+                    <option value="ALL">MOD_JRER_ALL</option>
+                    <option value="AMD">MOD_JRER_AMD</option>
+                    <option value="ANG">MOD_JRER_ANG</option>
+                    <option value="AOA">MOD_JRER_AOA</option>
+                    <option value="ARS">MOD_JRER_ARS</option>
+                    <option value="AUD">MOD_JRER_AUD</option>
+                    <option value="AWG">MOD_JRER_AWG</option>
+                    <option value="AZN">MOD_JRER_AZN</option>
+                    <option value="BAM">MOD_JRER_BAM</option>
+                    <option value="BBD">MOD_JRER_BBD</option>
+                    <option value="BDT">MOD_JRER_BDT</option>
+                    <option value="BGN">MOD_JRER_BGN</option>
+                    <option value="BHD">MOD_JRER_BHD</option>
+                    <option value="BIF">MOD_JRER_BIF</option>
+                    <option value="BMD">MOD_JRER_BMD</option>
+                    <option value="BND">MOD_JRER_BND</option>
+                    <option value="BOB">MOD_JRER_BOB</option>
+                    <option value="BRL">MOD_JRER_BRL</option>
+                    <option value="BSD">MOD_JRER_BSD</option>
+                    <option value="BTN">MOD_JRER_BTN</option>
+                    <option value="BWP">MOD_JRER_BWP</option>
+                    <option value="BYR">MOD_JRER_BYR</option>
+                    <option value="BZD">MOD_JRER_BZD</option>
+                    <option value="CAD">MOD_JRER_CAD</option>
+                    <option value="CDF">MOD_JRER_CDF</option>
+                    <option value="CHF">MOD_JRER_CHF</option>
+                    <option value="CLF">MOD_JRER_CLF</option>
+                    <option value="CLP">MOD_JRER_CLP</option>
+                    <option value="CNH">MOD_JRER_CNH</option>
+                    <option value="CNY">MOD_JRER_CNY</option>
+                    <option value="COP">MOD_JRER_COP</option>
+                    <option value="CRC">MOD_JRER_CRC</option>
+                    <option value="CUP">MOD_JRER_CUP</option>
+                    <option value="CVE">MOD_JRER_CVE</option>
+                    <option value="CZK">MOD_JRER_CZK</option>
+                    <option value="DJF">MOD_JRER_DJF</option>
+                    <option value="DKK">MOD_JRER_DKK</option>
+                    <option value="DOP">MOD_JRER_DOP</option>
+                    <option value="DZD">MOD_JRER_DZD</option>
+                    <option value="EGP">MOD_JRER_EGP</option>
+                    <option value="ERN">MOD_JRER_ERN</option>
+                    <option value="ETB">MOD_JRER_ETB</option>
+                    <option value="EUR">MOD_JRER_EUR</option>
+                    <option value="FJD">MOD_JRER_FJD</option>
+                    <option value="FKP">MOD_JRER_FKP</option>
+                    <option value="GBP">MOD_JRER_GBP</option>
+                    <option value="GEL">MOD_JRER_GEL</option>
+                    <option value="GHS">MOD_JRER_GHS</option>
+                    <option value="GIP">MOD_JRER_GIP</option>
+                    <option value="GMD">MOD_JRER_GMD</option>
+                    <option value="GNF">MOD_JRER_GNF</option>
+                    <option value="GTQ">MOD_JRER_GTQ</option>
+                    <option value="GYD">MOD_JRER_GYD</option>
+                    <option value="HKD">MOD_JRER_HKD</option>
+                    <option value="HNL">MOD_JRER_HNL</option>
+                    <option value="HRK">MOD_JRER_HRK</option>
+                    <option value="HTG">MOD_JRER_HTG</option>
+                    <option value="HUF">MOD_JRER_HUF</option>
+                    <option value="IDR">MOD_JRER_IDR</option>
+                    <option value="IEP">MOD_JRER_IEP</option>
+                    <option value="ILS">MOD_JRER_ILS</option>
+                    <option value="INR">MOD_JRER_INR</option>
+                    <option value="IQD">MOD_JRER_IQD</option>
+                    <option value="IRR">MOD_JRER_IRR</option>
+                    <option value="ISK">MOD_JRER_ISK</option>
+                    <option value="JMD">MOD_JRER_JMD</option>
+                    <option value="JOD">MOD_JRER_JOD</option>
+                    <option value="JPY">MOD_JRER_JPY</option>
+                    <option value="KES">MOD_JRER_KES</option>
+                    <option value="KGS">MOD_JRER_KGS</option>
+                    <option value="KHR">MOD_JRER_KHR</option>
+                    <option value="KMF">MOD_JRER_KMF</option>
+                    <option value="KPW">MOD_JRER_KPW</option>
+                    <option value="KRW">MOD_JRER_KRW</option>
+                    <option value="KWD">MOD_JRER_KWD</option>
+                    <option value="KYD">MOD_JRER_KYD</option>
+                    <option value="KZT">MOD_JRER_KZT</option>
+                    <option value="LAK">MOD_JRER_LAK</option>
+                    <option value="LBP">MOD_JRER_LBP</option>
+                    <option value="LKR">MOD_JRER_LKR</option>
+                    <option value="LRD">MOD_JRER_LRD</option>
+                    <option value="LSL">MOD_JRER_LSL</option>
+                    <option value="LTL">MOD_JRER_LTL</option>
+                    <option value="LVL">MOD_JRER_LVL</option>
+                    <option value="LYD">MOD_JRER_LYD</option>
+                    <option value="MAD">MOD_JRER_MAD</option>
+                    <option value="MDL">MOD_JRER_MDL</option>
+                    <option value="MGA">MOD_JRER_MGA</option>
+                    <option value="MKD">MOD_JRER_MKD</option>
+                    <option value="MMK">MOD_JRER_MMK</option>
+                    <option value="MNT">MOD_JRER_MNT</option>
+                    <option value="MOP">MOD_JRER_MOP</option>
+                    <option value="MRO">MOD_JRER_MRO</option>
+                    <option value="MUR">MOD_JRER_MUR</option>
+                    <option value="MVR">MOD_JRER_MVR</option>
+                    <option value="MWK">MOD_JRER_MWK</option>
+                    <option value="MXN">MOD_JRER_MXN</option>
+                    <option value="MXV">MOD_JRER_MXV</option>
+                    <option value="MYR">MOD_JRER_MYR</option>
+                    <option value="MZN">MOD_JRER_MZN</option>
+                    <option value="NAD">MOD_JRER_NAD</option>
+                    <option value="NGN">MOD_JRER_NGN</option>
+                    <option value="NIO">MOD_JRER_NIO</option>
+                    <option value="NOK">MOD_JRER_NOK</option>
+                    <option value="NPR">MOD_JRER_NPR</option>
+                    <option value="NZD">MOD_JRER_NZD</option>
+                    <option value="OMR">MOD_JRER_OMR</option>
+                    <option value="PAB">MOD_JRER_PAB</option>
+                    <option value="PEN">MOD_JRER_PEN</option>
+                    <option value="PGK">MOD_JRER_PGK</option>
+                    <option value="PHP">MOD_JRER_PHP</option>
+                    <option value="PKR">MOD_JRER_PKR</option>
+                    <option value="PLN">MOD_JRER_PLN</option>
+                    <option value="PYG">MOD_JRER_PYG</option>
+                    <option value="QAR">MOD_JRER_QAR</option>
+                    <option value="RON">MOD_JRER_RON</option>
+                    <option value="RSD">MOD_JRER_RSD</option>
+                    <option value="RUB">MOD_JRER_RUB</option>
+                    <option value="RWF">MOD_JRER_RWF</option>
+                    <option value="SAR">MOD_JRER_SAR</option>
+                    <option value="SBD">MOD_JRER_SBD</option>
+                    <option value="SCR">MOD_JRER_SCR</option>
+                    <option value="SDG">MOD_JRER_SDG</option>
+                    <option value="SEK">MOD_JRER_SEK</option>
+                    <option value="SGD">MOD_JRER_SGD</option>
+                    <option value="SHP">MOD_JRER_SHP</option>
+                    <option value="SLL">MOD_JRER_SLL</option>
+                    <option value="SOS">MOD_JRER_SOS</option>
+                    <option value="SRD">MOD_JRER_SRD</option>
+                    <option value="STD">MOD_JRER_STD</option>
+                    <option value="SVC">MOD_JRER_SVC</option>
+                    <option value="SYP">MOD_JRER_SYP</option>
+                    <option value="SZL">MOD_JRER_SZL</option>
+                    <option value="THB">MOD_JRER_THB</option>
+                    <option value="TJS">MOD_JRER_TJS</option>
+                    <option value="TMT">MOD_JRER_TMT</option>
+                    <option value="TND">MOD_JRER_TND</option>
+                    <option value="TOP">MOD_JRER_TOP</option>
+                    <option value="TRY">MOD_JRER_TRY</option>
+                    <option value="TTD">MOD_JRER_TTD</option>
+                    <option value="TWD">MOD_JRER_TWD</option>
+                    <option value="TZS">MOD_JRER_TZS</option>
+                    <option value="UAH">MOD_JRER_UAH</option>
+                    <option value="UGX">MOD_JRER_UGX</option>
+                    <option value="USD">MOD_JRER_USD</option>
+                    <option value="UYU">MOD_JRER_UYU</option>
+                    <option value="UZS">MOD_JRER_UZS</option>
+                    <option value="VEF">MOD_JRER_VEF</option>
+                    <option value="VND">MOD_JRER_VND</option>
+                    <option value="VUV">MOD_JRER_VUV</option>
+                    <option value="WST">MOD_JRER_WST</option>
+                    <option value="XAF">MOD_JRER_XAF</option>
+                    <option value="XAG">MOD_JRER_XAG</option>
+                    <option value="XAU">MOD_JRER_XAU</option>
+                    <option value="XBT">MOD_JRER_XBT</option>
+                    <option value="XCD">MOD_JRER_XCD</option>
+                    <option value="XCP">MOD_JRER_XCP</option>
+                    <option value="XDR">MOD_JRER_XDR</option>
+                    <option value="XOF">MOD_JRER_XOF</option>
+                    <option value="XPD">MOD_JRER_XPD</option>
+                    <option value="XPF">MOD_JRER_XPF</option>
+                    <option value="XPT">MOD_JRER_XPT</option>
+                    <option value="YER">MOD_JRER_YER</option>
+                    <option value="ZAR">MOD_JRER_ZAR</option>
+                    <option value="ZMW">MOD_JRER_ZMW</option>
+                    <option value="ZWL">MOD_JRER_ZWL</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+                />
+
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                />
+
+                <field
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC"
+                >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                    name="cache_time"
+                    type="text"
+                    default="900"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+                />
+
+                <field
+                    name="cachemode"
+                    type="hidden"
+                    default="static"
+                >
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
